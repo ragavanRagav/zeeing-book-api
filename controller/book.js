@@ -2,7 +2,8 @@ const { getAllBooks, getBook } = require("../service/book");
 
 const getBooks = async (req, res) => {
     try {
-        const resp = await getAllBooks();
+        const offset =req?.query?.page;
+        const resp = await getAllBooks(offset);
         res.status(200).send(resp);
     } catch (error) {
         res.status(400).send("Unexpected error occured");

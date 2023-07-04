@@ -10,7 +10,6 @@ const initializeDB = async () => {
             .then(async () => {
                 await loadInitialData();
                 console.log('Models synchronized with the database');
-                // Perform other actions after synchronization
             })
             .catch(err => {
                 console.error('Error synchronizing models:', err);

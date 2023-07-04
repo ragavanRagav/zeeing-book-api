@@ -1,8 +1,13 @@
 const { Book } = require("../entity/model/book");
 const json = require("../entity/sampledata.json");
 
-const getAllBooks = async () => {
-    const allBooks = await Book.findAll({attributes: ['id', 'title','price','discount','image']});
+const getAllBooks = async (offset = 0) => {
+    const limit = 8;
+    const allBooks = await Book.findAll({
+        attributes: ['id', 'title','price','discount','image'],
+        offset: offset*limit,
+        limit: limit,
+    });
     return allBooks;
 }
 
